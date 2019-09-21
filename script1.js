@@ -8,7 +8,7 @@ $(document).ready(function () {
             racks.map(rack=>{
                 $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
             });
-            let oo= racks.find(".answer");
+            let oo= racks.words;
             console.log(oo);
             $("#bingos li").on("click", function(evt){
                 $(evt.currentTarget).find(".answer").toggleClass("hidden");
