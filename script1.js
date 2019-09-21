@@ -35,7 +35,9 @@ $(document).ready(function () {
         }
 
     })
-    $("#submitGuess").click(checkGuess());
+    $("#submitGuess").click(function (){
+        checkGuess();
+    } );
 });
 
 function checkGuess() {
@@ -45,6 +47,7 @@ function checkGuess() {
     console.log(arrwords.indexOf(guess));
     if (arrwords.indexOf(guess) != -1) {
         alert("You were right great Job");
+        $("#guess").empty();
     } else {
         alert("You were wrong again, tr",);
     }
