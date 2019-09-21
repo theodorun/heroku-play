@@ -30,6 +30,7 @@ $(document).ready(function () {
         $("#submitGuess").click(function(){
             let guess = $("#guess").val();
             console.log(guess);
+            console.log(arrwords.indexOf('giraffe'));
             if(arrwords.indexOf(guess)) alert("You were right great Job");
             else alert("You were wrong again, tr",);
 
