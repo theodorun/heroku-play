@@ -9,7 +9,7 @@ $(document).ready(function () {
                 $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
             });
 
-
+            console.log(racks);
             console.log(racks.words);
             $("#bingos li").on("click", function(evt){
                 $(evt.currentTarget).find(".answer").toggleClass("hidden");
