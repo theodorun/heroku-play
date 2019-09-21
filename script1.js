@@ -1,5 +1,4 @@
-
-
+var arrwords;
 $(document).ready(function () {
     $(document).ready(function(){
         let words;
@@ -12,7 +11,7 @@ $(document).ready(function () {
             });
 
             console.log(words);
-            let arrwords = words.split('@@');
+            arrwords = words.split('@@');
             console.log(arrwords);
 
 
@@ -27,6 +26,13 @@ $(document).ready(function () {
                 url: "api.php",
                 success: data=>{ showRacks(data)}
             });
+        });
+        $("#submitGuess").click(function(){
+            let guess = $("#guess").val();
+            if(arrwords.indexOf(guess)) alert("You were right great Job");
+            else alert("You were wrong again, tr",);
+
+
         });
     });
 
