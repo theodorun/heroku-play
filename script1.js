@@ -29,6 +29,7 @@ $(document).ready(function () {
         });
         $("#submitGuess").click(function(){
             let guess = $("#guess").val();
+            console.log(guess);
             if(arrwords.indexOf(guess)) alert("You were right great Job");
             else alert("You were wrong again, tr",);
 
