@@ -27,21 +27,27 @@ $(document).ready(function () {
                 success: data=>{ showRacks(data)}
             });
         });
-        $("#submitGuess").click(function(){
-            let guess = $("#guess").val();
-            guess=  guess.toUpperCase();
-            console.log(guess);
-            console.log(arrwords.indexOf(guess));
+        $("#guess").keypress(function (event) {
+            if (event.which === 13) {
+                checkGuess();
+            }
 
-            if(arrwords.indexOf(guess)!=-1) {
-                alert("You were right great Job");}
-            else {
-                alert("You were wrong again, tr",);}
-
-
-        });
+        })
+        $("#submitGuess").click(checkGuess());
     });
 
 
     }
 );
+function checkGuess() {
+    let guess = $("#guess").val();
+    guess=  guess.toUpperCase();
+    console.log(guess);
+    console.log(arrwords.indexOf(guess));
+    if(arrwords.indexOf(guess)!=-1) {
+        alert("You were right great Job");}
+    else {
+        alert("You were wrong again, tr",);}
+
+
+}
