@@ -2,14 +2,18 @@
 
 $(document).ready(function () {
     $(document).ready(function(){
-
+        let words;
         let showRacks = function(racks){
             $("#bingos").html('');
             racks.map(rack=>{
                 $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
-                console.log(rack.words);
+                words =rack.words;
 
             });
+
+            console.log(words);
+            let arrwords = tring.split('@');
+            console.log(arrwords);
 
 
             $("#bingos li").on("click", function(evt){
