@@ -10,8 +10,8 @@ $(document).ready(function () {
             });
 
             console.log(racks);
-            var tmep=racks;
-            console.log(racks.words);
+            console.log(racks.map(rack=>{rack.words}));
+
             $("#bingos li").on("click", function(evt){
                 $(evt.currentTarget).find(".answer").toggleClass("hidden");
             });
