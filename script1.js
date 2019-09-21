@@ -1,53 +1,53 @@
 var arrwords;
+
 $(document).ready(function () {
-    $(document).ready(function(){
-        let words;
-        let showRacks = function(racks){
-            $("#bingos").html('');
-            racks.map(rack=>{
-                $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
-                words =rack.words;
+    let words;
+    let showRacks = function (racks) {
+        $("#bingos").html('');
+        racks.map(rack => {
+            $("#bingos").append(`<li>${rack.rack}</li>`);
+            words = rack.words;
 
-            });
+        });
 
-            console.log(words);
-            arrwords = words.split('@@');
-            console.log(arrwords);
+        console.log(words);
+        arrwords = words.split('@@');
+        console.log(arrwords);
 
 
-            $("#bingos li").on("click", function(evt){
-                $(evt.currentTarget).find(".answer").toggleClass("hidden");
-            });
+        $("#bingos li").on("click", function (evt) {
+            $(evt.currentTarget).find(".answer").toggleClass("hidden");
+        });
+    }
+
+    $("#grabmore").on("click", function () {
+        $.ajax({
+            method: "GET",
+            url: "api.php",
+            success: data => {
+                showRacks(data)
+            }
+        });
+    });
+    $("#guess").keypress(function (event) {
+        if (event.which === 13) {
+            checkGuess();
         }
 
-        $("#grabmore").on("click", function(){
-            $.ajax({
-                method: "GET",
-                url: "api.php",
-                success: data=>{ showRacks(data)}
-            });
-        });
-        $("#guess").keypress(function (event) {
-            if (event.which === 13) {
-                checkGuess();
-            }
+    })
+    $("#submitGuess").click(checkGuess());
+});
 
-        })
-        $("#submitGuess").click(checkGuess());
-    });
-
-
-    }
-);
 function checkGuess() {
     let guess = $("#guess").val();
-    guess=  guess.toUpperCase();
+    guess = guess.toUpperCase();
     console.log(guess);
     console.log(arrwords.indexOf(guess));
-    if(arrwords.indexOf(guess)!=-1) {
-        alert("You were right great Job");}
-    else {
-        alert("You were wrong again, tr",);}
+    if (arrwords.indexOf(guess) != -1) {
+        alert("You were right great Job");
+    } else {
+        alert("You were wrong again, tr",);
+    }
 
 
 }
