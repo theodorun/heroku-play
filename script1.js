@@ -8,7 +8,7 @@ $(document).ready(function () {
             racks.map(rack=>{
                 $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
             });
-            for (let channel of data._embedded.channelList) {
+            //for (let channel of data._embedded.channelList)
 
             console.log(racks);
             $("#bingos li").on("click", function(evt){
