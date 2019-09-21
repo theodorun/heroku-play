@@ -32,7 +32,7 @@ $(document).ready(function () {
             console.log(guess);
             console.log(arrwords.indexOf(guess));
 
-            if(arrwords.indexOf(guess)) {
+            if(arrwords.indexOf(guess)==1) {
                 alert("You were right great Job");}
             else {
                 alert("You were wrong again, tr",);}
