@@ -29,6 +29,7 @@ $(document).ready(function () {
         });
         $("#submitGuess").click(function(){
             let guess = $("#guess").val();
+            guess=  guess.toUpperCase();
             console.log(guess);
             console.log(arrwords.indexOf(guess));
 
