@@ -7,7 +7,7 @@ $(document).ready(function () {
             $("#bingos").html('');
             racks.map(rack=>{
                 $("#bingos").append(`<li>${rack.rack}: <span class="answer hidden">${rack.words}</span></li>`);
-
+                console.log(${rack.words});
 
             });
 
@@ -28,4 +28,4 @@ $(document).ready(function () {
 
 
     }
-)
+);
