@@ -12,7 +12,7 @@ $(document).ready(function () {
             });
 
             console.log(words);
-            let arrwords = words.split('@');
+            let arrwords = words.split('@@');
             console.log(arrwords);
 
 
