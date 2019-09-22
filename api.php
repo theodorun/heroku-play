@@ -26,7 +26,7 @@
     $no1rack=$results[0]['rack'];
     print_r($no1rack);
     $query2='SELECT rack FROM racks where rack='+$no1rack;
-    print_r(query2);
+    print_r($query2);
 
 
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
