@@ -32,6 +32,7 @@
      $perArray = [];
      $str = "no1rack";
      permute($str,0,strlen($str),$perArray);
+     print_r($perArray);
      for($i=1; $i<=count($perArray); $i++){
 
        $queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
