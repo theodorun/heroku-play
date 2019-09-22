@@ -29,11 +29,12 @@
     $statement2->bindValue(':norack', $no1rack);
     $results2 = $statement2->execute();
      $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
-     for($i=1; $i<=strlen($no1rack); $i++){
-     $random_position = rand(0,strlen($no1rack)-1);
-     $temparr = str_split($no1rack);
+     $temprack=$no1rack;
+     for($i=1; $i<=strlen($no1rack)-2; $i++){
+     $random_position = rand(0,strlen($temprack)-1);
+     $temparr = str_split($temprack);
      unset($temparr[$random_position]);
-     echo implode( $temparr );
+     $temprack=implode( $temparr );
 /*
         queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
        $statementTemp = $dbhandle->prepare($query3);
