@@ -55,7 +55,7 @@
 
 
       function permute($str,$i,$n,$perArray) {
-          if ($i == $n)echo $str;
+          if ($i == $n)array_push($perArray,$str);
 
           else {
                for ($j = $i; $j < $n; $j++) {
