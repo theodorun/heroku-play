@@ -6,11 +6,11 @@
  
     //this is a sample query which gets some data, the order by part shuffles the results
     $query = "SELECT rack FROM racks where length>5 order by random() limit 1";
-   $query = $dbhandle->query($query); // buffered result set
+   $statement = $dbhandle->prepare($query);
+    $statement->execute();
 
-   while ($entry = $query->fetch(SQLITE_ASSOC)) {
-       echo 'rack: ' . $entry['rack'];
-   }
+       results2 = $statement->fetchAll(PDO::FETCH_ASSOC);
+        echo $results2;*/
    /*
     //this next line could actually be used to provide user_given input to the query to 
     //avoid SQL injection attacks
