@@ -1,4 +1,4 @@
-var arrwords;
+var arrwords=Array();
 
 $(document).ready(function () {
     let words;
