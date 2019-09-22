@@ -9,7 +9,7 @@
 
 
     // Opening a SQLite3 database using a object-oriented (PDO) approach
-    print_r($query);
+
 
     //this next line could actually be used to provide user_given input to the query to 
     //avoid SQL injection attacks
@@ -20,9 +20,10 @@
     //there are several ways of getting the data out, iterating row by row,
     //I chose to get associative arrays inside of a big array
     //this will naturally create a pleasant array of JSON data when I echo in a couple lines
+    qlite_query($dbhandle, $sql);
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    print_r($results[0].['rack']);
+    echo($results[0].['rack']);
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request
     header('HTTP/1.1 200 OK');
