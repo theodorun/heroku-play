@@ -23,8 +23,8 @@
 
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    print_r($results[0]);
-    print_r($dbhandle->querySingle($query));
+    print_r($results[0]['rack']);
+
 
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request
