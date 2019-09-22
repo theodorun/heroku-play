@@ -6,10 +6,11 @@
  
     //this is a sample query which gets some data, the order by part shuffles the results
     $query = "SELECT rack FROM racks where length>5 order by random() limit 1";
-
-    print (sqlite_fetch_array($query, SQLITE_ASSOC));
-
-    
+    $statement = $dbhandle->prepare($query);
+    $statement->execute();
+   $results1 = $statement->fetchAll(PDO::FETCH_ASSOC);
+    echo $results1;
+   /*
     //this next line could actually be used to provide user_given input to the query to 
     //avoid SQL injection attacks
     $statement = $dbhandle->prepare($query);
@@ -19,7 +20,7 @@
     //there are several ways of getting the data out, iterating row by row,
     //I chose to get associative arrays inside of a big array
     //this will naturally create a pleasant array of JSON data when I echo in a couple lines
-    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $results2 = $statement->fetchAll(PDO::FETCH_ASSOC);
     
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request
@@ -27,6 +28,6 @@
     //this lets the browser know to expect json
     header('Content-Type: application/json');
     //this creates json and gives it back to the browser
-    echo json_encode($results);
+    echo json_encode($results);*/
 
 ?>
