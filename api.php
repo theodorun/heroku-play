@@ -35,12 +35,11 @@
      $temparr = str_split($temprack);
      unset($temparr[$random_position]);
      $temprack=implode( $temparr );
-    echo "<script>console.log(".json_encode($temprack).")</script>";
-/*
         queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
        $statementTemp = $dbhandle->prepare($query3);
-       $resultsTemp= $statement3->execute();
-       $resultsTemp = $statement3->fetchAll(PDO::FETCH_ASSOC);
+       $statementTemp->bindValue(':norack', $temprack);
+       $resultsTemp= $statementTemp->execute();
+       $resultsTemp = $statementTemp->fetchAll(PDO::FETCH_ASSOC);
        $results2=array_merge($results2, $resultsTemp);*/
        }
 
