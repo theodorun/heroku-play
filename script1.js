@@ -9,11 +9,10 @@ $(document).ready(function () {
             words = rack.words;
             let tem = words.split('@@');
             console.log(tem);
-            for(var item in tem ){
-                console.log(item);
-                arrwords.push(item);
-
-            }
+            tem.forEach(function(entry) {
+                console.log(entry);
+                arrwords.push(entry);
+            });
 
         });
         console.log(arrwords);
