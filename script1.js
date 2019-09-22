@@ -9,9 +9,13 @@ $(document).ready(function () {
             words = rack.words;
             let tem = words.split('@@');
             console.log(tem);
+            for(let item in tem ){
+                arrwords.push(item);
+
+            }
 
         });
-
+        console.log(arrwords);
 
 
         $("#bingos li").on("click", function (evt) {
