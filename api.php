@@ -28,6 +28,10 @@
     $statement2->bindValue(':norack', $no1rack);
     $results2 = $statement2->execute();
      $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
+      $query3 = "SELECT * FROM racks where length>5 order by random() limit 1";
+       $statement3 = $dbhandle->prepare($query3);
+       $results3 = $statement3->execute();
+       $results3 = $statement3->fetchAll(PDO::FETCH_ASSOC);
 
 
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
@@ -36,6 +40,7 @@
     //this lets the browser know to expect json
     header('Content-Type: application/json');
     //this creates json and gives it back to the browser
-    echo json_encode($results2);
+    $endresults=$results2+$results3;;
+    echo json_encode($endresults);
 
 ?>
