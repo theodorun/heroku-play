@@ -5,10 +5,10 @@
     if (!$dbhandle) die ($error);
  
     //this is a sample query which gets some data, the order by part shuffles the results
-    //the limit 0, 10 takes the first 10 results.
-    // you might want to consider taking more results, implementing "pagination", 
-    // ordering by rank, etc.
-    $query = "SELECT *  FROM racks order by random() limit 1";
+    $query = "SELECT rack FROM racks where length>5 order by random() limit 1";
+    $result = mysql_query($sql);
+    $value = mysql_fetch_object($result);
+    echo $value;
     
     //this next line could actually be used to provide user_given input to the query to 
     //avoid SQL injection attacks

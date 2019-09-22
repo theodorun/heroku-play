@@ -6,7 +6,7 @@ $(document).ready(function () {
         $("#bingos").html('');
         racks.map(rack => {
             $("#bingos").append(`<li>${rack.rack}</li>`);
-            words = rack.words;
+            words = words+rack.words;
 
         });
 
