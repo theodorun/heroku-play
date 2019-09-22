@@ -9,14 +9,8 @@
 
 
     // Opening a SQLite3 database using a object-oriented (PDO) approach
-    print_r($query);/*
-    echo
-   $statement = $dbhandle->prepare($query);
-    $statement->execute();
+    print_r($query);
 
-       $results2 = $statement->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($results2);*/
-   /*
     //this next line could actually be used to provide user_given input to the query to 
     //avoid SQL injection attacks
     $statement = $dbhandle->prepare($query);
@@ -26,14 +20,14 @@
     //there are several ways of getting the data out, iterating row by row,
     //I chose to get associative arrays inside of a big array
     //this will naturally create a pleasant array of JSON data when I echo in a couple lines
-    $results2 = $statement->fetchAll(PDO::FETCH_ASSOC);
-    
+    $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+    print_r($results);
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request
     header('HTTP/1.1 200 OK');
     //this lets the browser know to expect json
     header('Content-Type: application/json');
     //this creates json and gives it back to the browser
-    echo json_encode($results);*/
+    echo json_encode($results);
 
 ?>
