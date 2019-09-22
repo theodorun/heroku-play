@@ -36,12 +36,11 @@
      unset($temparr[$random_position]);
      $temprack=implode( $temparr );
        $queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
-       print_r($queryTemp);
-       /*$statementTemp = $dbhandle->prepare($queryTemp);
+       $statementTemp = $dbhandle->prepare($queryTemp);
        $statementTemp->bindValue(':norack', $temprack);
        $resultsTemp= $statementTemp->execute();
        $resultsTemp = $statementTemp->fetchAll(PDO::FETCH_ASSOC);
-       $results2=array_merge($results2, $resultsTemp);*/
+       $results2=array_merge($results2, $resultsTemp);
        }
 
 
