@@ -6,6 +6,14 @@
  
     //this is a sample query which gets some data, the order by part shuffles the results
     $query = "SELECT rack FROM racks where length>5 order by random() limit 1";
+
+
+    // Opening a SQLite3 database using a object-oriented (PDO) approach
+
+    $result = $dbhandle-&gt;query($query);
+    foreach ($result as $row) {
+        echo 'Example content: ' . $row;
+    }/*
    $statement = $dbhandle->prepare($query);
     $statement->execute();
 
