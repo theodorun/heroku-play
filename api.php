@@ -10,7 +10,7 @@
     $statement->execute();
 
        results2 = $statement->fetchAll(PDO::FETCH_ASSOC);
-        echo $results2;*/
+        echo json_encode($results2);*/
    /*
     //this next line could actually be used to provide user_given input to the query to 
     //avoid SQL injection attacks
