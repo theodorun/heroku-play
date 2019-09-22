@@ -22,7 +22,7 @@
     //this will naturally create a pleasant array of JSON data when I echo in a couple lines
 
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
-    print_r($results[0]['rack']);
+
     $no1rack=$results[0]['rack'];
 
     $statement2 = $dbhandle->prepare('SELECT * FROM racks WHERE rack = :norack');
