@@ -9,11 +9,7 @@
 
 
     // Opening a SQLite3 database using a object-oriented (PDO) approach
-echo "hlellelel";
-    $result = $dbhandle-&gt;query($query);
-    foreach ($result as $row) {
-        echo 'Example content: ' . $row;
-    }/*
+    print_r($query);/*
     echo
    $statement = $dbhandle->prepare($query);
     $statement->execute();
