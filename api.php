@@ -23,9 +23,8 @@
 
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
     print_r($results[0]['rack']);
-    $no1rack=$results[0]['rack']
-    $query = "SELECT * FROM racks where rack='$no1rack'";
-    print_r($query);
+    $no1rack=$results[0]['rack'];
+    print_r($no1rack);
     /*$statement = $dbhandle->prepare($query);
      $statement->execute();
       $results = $statement->fetchAll(PDO::FETCH_ASSOC);*/
