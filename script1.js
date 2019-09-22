@@ -7,10 +7,11 @@ $(document).ready(function () {
         racks.map(rack => {
             $("#bingos").append(`<li>${rack.rack}</li>`);
             words = rack.words;
-            arrwords.push(words.split('@@'));
+            let tem = words.split('@@');
+            console.log(tem);
 
         });
-        console.log(arrwords);
+
 
 
         $("#bingos li").on("click", function (evt) {
