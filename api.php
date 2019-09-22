@@ -20,7 +20,7 @@
     //there are several ways of getting the data out, iterating row by row,
     //I chose to get associative arrays inside of a big array
     //this will naturally create a pleasant array of JSON data when I echo in a couple lines
-    qlite_query($dbhandle, $sql);
+
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     print_r($results[0]);
