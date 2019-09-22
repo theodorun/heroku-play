@@ -29,19 +29,20 @@
     $statement2->bindValue(':norack', $no1rack);
     $results2 = $statement2->execute();
      $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
-     $temprack=$no1rack;
-     for($i=1; $i<=strlen($no1rack)-2; $i++){
-     $random_position = rand(0,strlen($temprack)-1);
-     $temparr = str_split($temprack);
-     unset($temparr[$random_position]);
-     $temprack=implode( $temparr );
+     $perArray = [];
+     $str = "no1rack";
+     permute($str,0,strlen($str),$perArray);
+     for($i=1; $i<=count($perArray); $i++){
+
        $queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
        $statementTemp = $dbhandle->prepare($queryTemp);
-       $statementTemp->bindValue(':norack', $temprack);
+       $statementTemp->bindValue(':norack', $perArray[$i]);
        $resultsTemp= $statementTemp->execute();
        $resultsTemp = $statementTemp->fetchAll(PDO::FETCH_ASSOC);
        $results2=array_merge($results2, $resultsTemp);
        }
+
+
 
 
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
@@ -51,5 +52,25 @@
     header('Content-Type: application/json');
     //this creates json and gives it back to the browser
     echo json_encode($results2);
+
+
+      function permute($str,$i,$n,$perArray) {
+          if ($i == $n)echo $str;
+
+          else {
+               for ($j = $i; $j < $n; $j++) {
+                 swap($str,$i,$j);
+                 permute($str, $i+1, $n,$perArray);
+                 swap($str,$i,$j); // backtrack.
+              }
+          }
+       }
+
+       // function to swap the char at pos $i and $j of $str.
+       function swap(&$str,$i,$j) {
+           $temp = $str[$i];
+           $str[$i] = $str[$j];
+           $str[$j] = $temp;
+       }
 
 ?>
