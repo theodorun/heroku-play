@@ -24,9 +24,10 @@
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
     print_r($results[0]['rack']);
     $no1rack=$results[0]['rack'];
-    print_r($no1rack);
-    $query2='SELECT rack FROM racks where rack='+$no1rack;
-    print_r($query2);
+    $statement2 = $dbhandle->prepare('SELECT * FROM wifinTb WHERE rack = :norack');
+    $statement2->bindValue(':norack', $no1rack);
+    $results2 = $statement2->execute();
+     $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
 
 
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
@@ -35,6 +36,6 @@
     //this lets the browser know to expect json
     header('Content-Type: application/json');
     //this creates json and gives it back to the browser
-    echo json_encode($results);
+    echo json_encode($results2);
 
 ?>
