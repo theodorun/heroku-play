@@ -6,6 +6,7 @@
  
     //this is a sample query which gets some data, the order by part shuffles the results
     $query = "SELECT rack FROM racks where length>5 order by random() limit 1";
+    echo "Study PHP at<br>";
 
     
     //this next line could actually be used to provide user_given input to the query to 
