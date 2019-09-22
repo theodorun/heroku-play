@@ -23,7 +23,9 @@
     qlite_query($dbhandle, $sql);
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    var_dump($results[0]);
+    print_r($results[0]);
+    print_r($dbhandle->querySingle($query));
+
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
     //making to this line means everything was great with this request
     header('HTTP/1.1 200 OK');
