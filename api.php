@@ -9,7 +9,7 @@
     $statement = $dbhandle->prepare($query);
     $statement->execute();
    $results1 = $statement->fetchAll(PDO::FETCH_ASSOC);
-    echo $results1;
+    echo $results1['rack'];
    /*
     //this next line could actually be used to provide user_given input to the query to 
     //avoid SQL injection attacks
