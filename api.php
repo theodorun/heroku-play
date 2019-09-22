@@ -35,7 +35,7 @@
      $temparr = str_split($temprack);
      unset($temparr[$random_position]);
      $temprack=implode( $temparr );
-        queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
+       $queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
        $statementTemp = $dbhandle->prepare($queryTemp);
        $statementTemp->bindValue(':norack', $temprack);
        $resultsTemp= $statementTemp->execute();
