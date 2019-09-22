@@ -6,12 +6,10 @@ $(document).ready(function () {
         $("#bingos").html('');
         racks.map(rack => {
             $("#bingos").append(`<li>${rack.rack}</li>`);
-            words = words+rack.words;
+            words = rack.words;
+            arrwords.push(words.split('@@'));
 
         });
-
-        console.log(words);
-        arrwords = words.split('@@');
         console.log(arrwords);
 
 
