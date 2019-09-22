@@ -25,9 +25,8 @@
     print_r($results[0]['rack']);
     $no1rack=$results[0]['rack'];
     print_r($no1rack);
-    $statement2 = $dbhandle->prepare('SELECT rack FROM racks where rack=', $no1rack);
-    $statement2->execute();
-     $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);*/
+    $query2='SELECT rack FROM racks where rack=', $no1rack);
+    print_r(query2);
 
 
     //this part is perhaps overkill but I wanted to set the HTTP headers and status code
