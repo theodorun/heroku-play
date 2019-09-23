@@ -101,10 +101,10 @@ function checkGuess() {
         console.log(score);
         $('#guess').val('');
         let found=arrwords[pos][0];
-        console.log("hEre");
-        console.log(found);
 
-        $(pos2).replaceWith("<li>Found=${found}</li>");
+
+
+        $(pos2).replaceWith(`<li>Found=${found}</li>`);
 
     } else {
         alert("You were wrong, try again",);
