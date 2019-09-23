@@ -1,12 +1,19 @@
 .racks  {
     color:red;
     margin: 25px;
+    display: inline-block;
 }
 .racks>*  {
     border: 1px solid black ;
     margin: 1px;
+    display: inline-block;
 }
 #main{
-    width: 720px;
-    height: 1200px;
+    width: 500px;
+    text-align: center
+
+}
+#divracks{
+    display: inline-block;
+
 }
