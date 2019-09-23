@@ -40,7 +40,7 @@ print_r($perArray);
        $queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
        $statementTemp = $dbhandle->prepare($queryTemp);
 
-       $statementTemp->bindValue(':norack', echo implode($perArray[$i]));
+       $statementTemp->bindValue(':norack', $perArray[$i]);
        $resultsTemp= $statementTemp->execute();
        $resultsTemp = $statementTemp->fetchAll(PDO::FETCH_ASSOC);
        $results2=array_merge($results2, $resultsTemp);
