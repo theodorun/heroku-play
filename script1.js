@@ -80,7 +80,7 @@ function checkGuess() {
     let pos = -1;
     for (var i = 0; i < arrwords.length; i++) {
         if (arrwords[i][0].localeCompare(guess) === 0) {
-            if(arrwords[pos][2]){
+            if(arrwords[i][2]){
                 alert("Nice try cheater");
                 return;
             }
