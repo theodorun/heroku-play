@@ -6,3 +6,7 @@
     border: 1px solid black ;
     margin: 1px;
 }
+#main{
+    width: 720px;
+    height: 1200px;
+}
