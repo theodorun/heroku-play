@@ -106,7 +106,7 @@ function checkGuess() {
         console.log(score);
         arrwords[pos][2] = true;
 
-        $(pos2).replaceWith(`<span class="racks">${found}</span>`);
+        $(pos2).replaceWith(`<span class="racksFound">${found}</span>`);
         console.log("score: "+score);
 
         $('#score').replaceWith(`<h2 id="score">Score=${ score.toString(10)}</h2>`);

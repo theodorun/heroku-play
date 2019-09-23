@@ -3,22 +3,31 @@
     margin: 3px;
     display: inline-block;
 }
+.racksFound  {
+    border: 1px solid darkgreen ;
+    border-radius: 12px;
+    color:darkgreen;
+    margin: 3px;
+    display: inline-block;
+}
 .racks>*  {
-    border: 1px solid black ;
-    border-radius: 15px;
+    border: 1px solid red ;
+    border-radius: 12px;
     margin: 1px;
     display: inline-block;
     font-size: 15px;
+    text-align: center;
 
 }
 #bingos>*  {
     border: 2px solid black ;
-    border-radius: 20px;
+    border-radius: 12px;
     margin: 3px;
     display: inline-block;
     font-size: 30px;
     width: 25px;
     height: 35px;
+    text-align: center;
 }
 #main{
     width: 95%;
