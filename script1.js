@@ -1,6 +1,6 @@
-var arrwords=[];
+var arrwords = [];
 //var arrwords=["CCC","BB","A","DDDDD"];
-var emptywords=Array();
+var emptywords = Array();
 
 
 $(document).ready(function () {
@@ -9,47 +9,44 @@ $(document).ready(function () {
     let showRacks = function (racks) {
         console.log(racks);
 
-        arrwords=[];
-        emptywords=Array();
+        arrwords = [];
+        emptywords = Array();
         racks.map(rack => {
 
             words = rack.words;
-            points=rack.weight;
+            points = rack.weight;
             let tem = words.split('@@');
-            tem.forEach(function(entry) {
-               arrwords.push([entry,points]);
+            tem.forEach(function (entry) {
+                arrwords.push([entry, points]);
 
             });
 
         });
-        let onlyrack=racks[0]["rack"];
+        let onlyrack = racks[0]["rack"];
+        $("#bingos").empty();
         $("#bingos").append(`<h2>${onlyrack}</h2>`);
-        arrwords.sort(function(a, b){
+        arrwords.sort(function (a, b) {
 
             return a[0].length - b[0].length;
         });
 
         console.log(arrwords);
         for (const c of arrwords) {
-            let x=c[0].length;
+            let x = c[0].length;
             let char = 'X';
             emptywords.push(char.repeat(x));
 
 
-
         }
         console.log(emptywords);
-
-        $.each(emptywords, function(i)
-
-        {
+        $("#racks").empty();
+        $.each(emptywords, function (i) {
 
             $("#racks").append(`<li class="racks" id="rackNr${i}">${emptywords[i]}</li>`);
             $(".racks").lettering();
         });
 
     };
-
 
 
     $("#grabmore").on("click", function () {
@@ -67,30 +64,31 @@ $(document).ready(function () {
         }
 
     })
-    $("#submitGuess").click(function (){
+    $("#submitGuess").click(function () {
         checkGuess();
-    } );
+    });
 });
 
 function checkGuess() {
     let guess = $("#guess").val();
     guess = guess.toUpperCase();
     console.log(guess);
-    let flag=false
-    let pos=-1;
+    let flag = false
+    let pos = -1;
     for (var i = 0; i < arrwords.length; i++) {
-        if(arrwords[i][0].localeCompare(guess)===0){
-            flag=true;
-            pos=i;
-        };
-    };
+        if (arrwords[i][0].localeCompare(guess) === 0) {
+            flag = true;
+            pos = i;
+        }
+        ;
+    }
+    ;
     if (flag) {
         alert("You were right great Job");
-        let pos2 ="#rackNr"+pos.toString(10);
+        let pos2 = "#rackNr" + pos.toString(10);
         console.log(pos2);
-
         $("#guess").empty();
-        $(pos2).replaceWith( "<li>Found</li>" );
+        $(pos2).replaceWith("<li>Found</li>");
 
     } else {
         alert("You were wrong, try again",);
