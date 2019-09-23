@@ -9,7 +9,7 @@ $(document).ready(function () {
             $("#racks").append(`<li>${rack.rack}</li>`);
             words = rack.words;
             let tem = words.split('@@');
-            console.log(tem);
+            //console.log(tem);
             tem.forEach(function(entry) {
                 //console.log(entry);
                arrwords.push(entry);
