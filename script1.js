@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     else  score = 0;
     console.log(score);
-    $('#score').replaceWith(`<h2>Score=${ score.toString(10)}</h2>`);
+    $('#div').append(`<h2 id ="score">Score=${ score.toString(10)}</h2>`);
 
     $('#guess').val('');
     let words;
@@ -108,7 +108,7 @@ function checkGuess() {
         $(pos2).replaceWith(`<span class="racks">${found}</span>`);
         console.log("score: "+score);
 
-        $('#divracks').append(`<h2 id="score">Score=${ score.toString(10)}</h2>`);
+        $('#score').replaceWith(`<h2 id="score">Score=${ score.toString(10)}</h2>`);
 
         createCookie("myscore",score);
 
