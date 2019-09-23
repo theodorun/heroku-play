@@ -45,7 +45,7 @@ $(document).ready(function () {
         $("#racks").empty();
         $.each(emptywords, function (i) {
 
-            $("#racks").append(`<li class="racks" id="rackNr${i}">${emptywords[i]}</li>`);
+            $("#racks").append(`<span class="racks" id="rackNr${i}">${emptywords[i]}</span>`);
             $(".racks").lettering();
         });
 
