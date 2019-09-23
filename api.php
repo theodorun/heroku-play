@@ -24,11 +24,11 @@
     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     $no1rack=$results[0]['rack'];
-
+/*
     $statement2 = $dbhandle->prepare('SELECT * FROM racks WHERE rack = :norack');
     $statement2->bindValue(':norack', $no1rack);
     $results2 = $statement2->execute();
-     $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
+     $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);*/
      $temPerArray = permutaions($no1rack);
      $perArray=array_unique($temPerArray, SORT_STRING);
 
