@@ -21,7 +21,7 @@ $(document).ready(function () {
         console.log("held");*/
 
     }
-
+    arrwords.sort(function(a, b){return a-b});
     console.log(arrwords);
 
 
