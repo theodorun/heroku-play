@@ -12,9 +12,7 @@ $(document).ready(function () {
             $("#racks").append(`<li>${rack.rack}</li>`);
             words = rack.words;
             let tem = words.split('@@');
-            //console.log(tem);
             tem.forEach(function(entry) {
-                //console.log(entry);
                arrwords.push(entry);
             });
 
@@ -25,6 +23,7 @@ $(document).ready(function () {
             x=c.length;
             var char = 'X';
             emptywords.push(char.repeat(x));
+            emptywords.sort();
 
 
         }
