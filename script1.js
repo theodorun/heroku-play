@@ -14,7 +14,7 @@ $(document).ready(function () {
         racks.map(rack => {
 
             words = rack.words;
-            points=rack.points;
+            points=rack.weight;
             let tem = words.split('@@');
             tem.forEach(function(entry) {
                arrwords.push([entry,points]);
@@ -24,8 +24,6 @@ $(document).ready(function () {
         });
         let onlyrack=racks[0]["rack"];
         $("#bingos").append(`<h2>${onlyrack}</h2>`);
-        console.log("ARR");
-        console.log(arrwords);
         arrwords.sort(function(a, b){
 
             return a[0].length - b[0].length;
