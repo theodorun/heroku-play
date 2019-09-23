@@ -1,6 +1,6 @@
 .racks  {
     color:red;
-    margin: 25px;
+    margin: 2px 2px 2px 2px ;
     display: inline-block;
 }
 .racks>*  {
@@ -9,7 +9,7 @@
     display: inline-block;
 }
 #main{
-    width: 500px;
+    width: 100;
     text-align: center
 
 }

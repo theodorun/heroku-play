@@ -42,7 +42,7 @@ $(document).ready(function () {
 
         }
         console.log(emptywords);
-        $("#racks").empty();
+        $("#divracks").empty();
         $.each(emptywords, function (i) {
 
             $("#divracks").append(`<span class="racks" id="rackNr${i}">${emptywords[i]}</span>`);
