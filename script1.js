@@ -5,7 +5,7 @@ var score;
 
 
 $(document).ready(function () {
-    if(readCookie("myscore")!=null)  score = readCookie("myscore");
+    if(readCookie("myscore")!=null)  score = parseInt(readCookie("myscore"));
     else  score = 0;
     $('#score').replaceWith(`<h2>Score=${score}</h2>`);
 
@@ -99,7 +99,7 @@ function checkGuess() {
         let pos2 = "#rackNr" + pos.toString(10);
         $('#guess').val('');
         let found = arrwords[pos][0];
-        score=score+arrwords[pos][1];
+        score=score+parseInt(arrwords[pos][1]);
         arrwords[pos][2] = true;
 
         $(pos2).replaceWith(`<span class="racks">${found}</span>`);
