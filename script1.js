@@ -18,8 +18,10 @@ $(document).ready(function () {
         });
         let onlyrack=racks[0]["rack"];
         $("#bingos").append(`<h2>${onlyrack}</h2>`);
-        arrwords.sort();
-        arrwords.sort();
+
+        arrwords.sort(function(a, b){
+            return a.length - b.length;
+        });
         console.log(arrwords);
         for (const c of arrwords) {
             x=c.length;
