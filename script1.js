@@ -76,7 +76,6 @@ function checkGuess() {
     let guess = $("#guess").val();
     guess = guess.toUpperCase();
     console.log(guess);
-    console.log(arrwords.indexOf(guess));
     let flag=false
     let pos=-1;
     for (var i = 0; i < arrwords.length; i++) {
