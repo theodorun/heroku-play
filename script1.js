@@ -1,9 +1,11 @@
 var arrwords = [];
 //var arrwords=["CCC","BB","A","DDDDD"];
 var emptywords = Array();
+var score;
 
 
 $(document).ready(function () {
+    score=0;
     $('#guess').val('');
     let words;
     let points
@@ -87,7 +89,8 @@ function checkGuess() {
     if (flag) {
         alert("You were right great Job");
         let pos2 = "#rackNr" + pos.toString(10);
-        console.log(pos2);
+        score=arrwords[pos][1];
+        console.log(score);
         $('#guess').val('');
         $(pos2).replaceWith("<li>Found</li>");
 
