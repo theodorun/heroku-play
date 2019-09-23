@@ -5,6 +5,8 @@ var emptywords=Array();
 $(document).ready(function () {
     let words;
     let showRacks = function (racks) {
+        arrwords=Array();
+        emptywords=Array();
         $("#racks").html('');
         racks.map(rack => {
             $("#racks").append(`<li>${rack.rack}</li>`);
