@@ -16,7 +16,7 @@ $(document).ready(function () {
             });
 
         });
-        $("#bingos").append(`<li>${racks[0][rack]}</li>`);
+        $("#bingos").append(`<h2>${racks[0][rack]}</h2>`);
         arrwords.sort();
         console.log(arrwords);
         for (const c of arrwords) {
