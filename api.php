@@ -83,11 +83,13 @@ function permutaions($str) {
     $perr=[];
     for ($i = 0; $i <$total; $i++) {
         $off=1;
-    if(count($tempPerr[$i])>$off) {
-       $str=implode($tempPerr[$i]);
-       array_push($perr,$str);
+        if(count($tempPerr[$i])>$off) {
+            $str=implode($tempPerr[$i]);
+            array_push($perr,$str);
+       }
+
     }
-    return $perr
+return $perr;
 }
 
 
