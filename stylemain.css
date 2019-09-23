@@ -9,7 +9,7 @@
     display: inline-block;
 }
 #main{
-    width: 100%;
+    width: 95%;
     text-align: center
 
 }
@@ -27,6 +27,7 @@
 
 }
 #score{
+    display: inline-block;
     position:absolute;
     top:0;
     right:0;

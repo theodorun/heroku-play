@@ -99,7 +99,7 @@ function checkGuess() {
         console.log(score);
         $('#guess').val('');
         let found = arrwords[pos][0];
-        $(pos2).replaceWith(`<li>Found=${found}</li>`);
+        $(pos2).replaceWith(`<span>${found}</span>`);
         $('#score').replaceWith(`<h2>Score=${arrwords[pos][1]}</h2>`);
 
 
