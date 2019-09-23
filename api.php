@@ -29,19 +29,21 @@
     $statement2->bindValue(':norack', $no1rack);
     $results2 = $statement2->execute();
      $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
-     $perArray = [];
-     $str = "no1rack";
-     permute($str,0,strlen($str),$perArray);
-     print_r($perArray);
+     $perArray = permutaions($no1rack);
+
+print_r($perArray);
+
+/*
      for($i=1; $i<=count($perArray); $i++){
 
        $queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
        $statementTemp = $dbhandle->prepare($queryTemp);
-       $statementTemp->bindValue(':norack', $perArray[$i]);
+
+       $statementTemp->bindValue(':norack', echo implode($perArray[$i]));
        $resultsTemp= $statementTemp->execute();
        $resultsTemp = $statementTemp->fetchAll(PDO::FETCH_ASSOC);
        $results2=array_merge($results2, $resultsTemp);
-       }
+       }*/
 
 
 
@@ -54,24 +56,39 @@
     //this creates json and gives it back to the browser
     echo json_encode($results2);
 
+function permutaions($str) {
 
-      function permute($str,$i,$n,$perArray) {
-          if ($i == $n)array_push($perArray,$str);
+    $words =  str_split($str);
 
-          else {
-               for ($j = $i; $j < $n; $j++) {
-                 swap($str,$i,$j);
-                 permute($str, $i+1, $n,$perArray);
-                 swap($str,$i,$j); // backtrack.
-              }
-          }
-       }
+    $num = count($words);
 
-       // function to swap the char at pos $i and $j of $str.
-       function swap(&$str,$i,$j) {
-           $temp = $str[$i];
-           $str[$i] = $str[$j];
-           $str[$j] = $temp;
-       }
+    $total = pow(2, $num);
+
+    $tempPerr=[];
+
+    for ($i = 0; $i < $total; $i++) {
+
+
+
+        for ($j = 0;$j < $num; $j++) {
+            if (pow(2, $j) & $i) {
+                $tempPerr[$i][$j]=  $words[$j];
+            }
+
+        }
+
+
+    }
+
+    $perr=[];
+    for ($i = 0; $i <$total; $i++) {
+        $off=1;
+    if(count($tempPerr[$i])>$off) {
+       $str=implode($tempPerr[$i]);
+       array_push($perr,$str);
+    }
+    return $perr
+}
+
 
 ?>
