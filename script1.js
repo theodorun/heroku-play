@@ -1,21 +1,23 @@
-var arrwords=Array();
+var arrwords=[[]];
 //var arrwords=["CCC","BB","A","DDDDD"];
 var emptywords=Array();
-var points=Array();
+
 
 $(document).ready(function () {
     let words;
     let showRacks = function (racks) {
         console.log(racks);
-        points=Array();
-        arrwords=Array();
+
+        arrwords=[[]];
         emptywords=Array();
         racks.map(rack => {
 
             words = rack.words;
+            let points=rack.points;
             let tem = words.split('@@');
             tem.forEach(function(entry) {
-               arrwords.push(entry);
+               arrwords.push([entry,points]);
+
             });
 
         });
@@ -23,12 +25,13 @@ $(document).ready(function () {
         $("#bingos").append(`<h2>${onlyrack}</h2>`);
 
         arrwords.sort(function(a, b){
-            return a.length - b.length;
+
+            return a[0].length - b[0].length;
         });
-        arrwords.sort();
+
         console.log(arrwords);
         for (const c of arrwords) {
-            x=c.length;
+            x=c[0].length;
             var char = 'X';
             emptywords.push(char.repeat(x));
 
@@ -74,13 +77,21 @@ function checkGuess() {
     guess = guess.toUpperCase();
     console.log(guess);
     console.log(arrwords.indexOf(guess));
-    if (arrwords.indexOf(guess) != -1) {
+    let flag=false
+    let pos=-1;
+    for (var i = 0; i < arrwords.length; i++) {
+        if(arrwords[i][0].localeCompare(guess)===0){
+            flag=true;
+            pos=i;
+        };
+    };
+    if (flag) {
         alert("You were right great Job");
-        let pos ="#rackNr"+arrwords.indexOf(guess).toString(10);
-        console.log(pos);
+        let pos2 ="#rackNr"+pos.toString(10);
+        console.log(pos2);
 
         $("#guess").empty();
-        $(pos).replaceWith( "<li>Found</li>" );
+        $(pos2).replaceWith( "<li>Found</li>" );
 
     } else {
         alert("You were wrong, try again",);
