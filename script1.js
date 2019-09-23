@@ -14,59 +14,10 @@ $(document).ready(function () {
     $('#guess').val('');
     let words;
     let points
-    let showRacks = function (racks) {
-        console.log(racks);
-
-        arrwords = [];
-        emptywords = Array();
-        racks.map(rack => {
-
-            words = rack.words;
-            points = rack.weight;
-            let tem = words.split('@@');
-            tem.forEach(function (entry) {
-                arrwords.push([entry, points, false]);
-
-            });
-
-        });
-        let onlyrack = racks[0]["rack"];
-        $("#bingos").empty();
-        $("#bingos").append(`<h2>${onlyrack}</h2>`);
-        $("#bingos").lettering();
-        arrwords.sort(function (a, b) {
-
-            return a[0].length - b[0].length;
-        });
-
-        console.log(arrwords);
-        for (const c of arrwords) {
-            let x = c[0].length;
-            let char = 'X';
-            emptywords.push(char.repeat(x));
 
 
-        }
-        console.log(emptywords);
-        $("#divracks").empty();
-        $.each(emptywords, function (i) {
 
-            $("#divracks").append(`<span class="racks" id="rackNr${i}">${emptywords[i]}</span>`);
-            $(".racks").lettering();
-        });
-
-    };
-
-
-    $("#grabmore").on("click", function () {
-        $.ajax({
-            method: "GET",
-            url: "api.php",
-            success: data => {
-                showRacks(data)
-            }
-        });
-    });
+    $("#grabmore").on("click", getRacks);
     $("#guess").keypress(function (event) {
         if (event.which === 13) {
             checkGuess();
@@ -77,6 +28,57 @@ $(document).ready(function () {
         checkGuess();
     });
 });
+function getRacks() {
+    $.ajax({
+        method: "GET",
+        url: "api.php",
+        success: data => {
+            racksToArrays(data)
+        }
+    });
+}
+function racksToArrays (racks) {
+    console.log(racks);
+
+    arrwords = [];
+    emptywords = Array();
+    racks.map(rack => {
+
+        words = rack.words;
+        points = rack.weight;
+        let tem = words.split('@@');
+        tem.forEach(function (entry) {
+            arrwords.push([entry, points, false]);
+
+        });
+
+    });
+    let onlyrack = racks[0]["rack"];
+    $("#bingos").empty();
+    $("#bingos").append(`<h2>${onlyrack}</h2>`);
+    $("#bingos").lettering();
+    arrwords.sort(function (a, b) {
+
+        return a[0].length - b[0].length;
+    });
+
+    console.log(arrwords);
+    for (const c of arrwords) {
+        let x = c[0].length;
+        let char = 'X';
+        emptywords.push(char.repeat(x));
+
+
+    }
+    console.log(emptywords);
+    $("#divracks").empty();
+    $.each(emptywords, function (i) {
+
+        $("#divracks").append(`<span class="racks" id="rackNr${i}">${emptywords[i]}</span>`);
+        $(".racks").lettering();
+    });
+
+}
 
 function checkGuess() {
     let guess = $("#guess").val();
