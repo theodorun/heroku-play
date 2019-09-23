@@ -97,15 +97,15 @@ function checkGuess() {
     if (flag) {
         alert("You were right great Job");
         let pos2 = "#rackNr" + pos.toString(10);
-        score = arrwords[pos][1];
-        arrwords[pos][2] = true;
-        console.log(score);
         $('#guess').val('');
         let found = arrwords[pos][0];
-        $(pos2).replaceWith(`<span class="racks">${found}</span>`);
         score=score+arrwords[pos][1];
+        arrwords[pos][2] = true;
+
+        $(pos2).replaceWith(`<span class="racks">${found}</span>`);
         $('#score').replaceWith(`<h2>Score=${score}</h2>`);
         createCookie("myscore",score);
+
 
 
     } else {
