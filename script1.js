@@ -10,11 +10,12 @@ $(document).ready(function () {
             let tem = words.split('@@');
             console.log(tem);
             tem.forEach(function(entry) {
-                console.log(entry);
-                arrwords.push(entry);
+                //console.log(entry);
+              //  arrwords.push(entry);
             });
 
         });
+        arrwords.sort();
         console.log(arrwords);
 
 
