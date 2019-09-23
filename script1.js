@@ -38,7 +38,7 @@ function getRacks() {
 }
 
 function racksToArrays(racks) {
-    console.log(racks);
+    //console.log(racks);
     let words;
     let points;
     arrwords = [];
@@ -63,7 +63,7 @@ function racksToArrays(racks) {
         return a[0].length - b[0].length;
     });
 
-    console.log(arrwords);
+    //console.log(arrwords);
     for (const c of arrwords) {
         let x = c[0].length;
         let char = 'X';
@@ -83,7 +83,7 @@ function racksToArrays(racks) {
 function checkGuess() {
     let guess = $("#guess").val();
     guess = guess.toUpperCase();
-    console.log(guess);
+    //console.log(guess);
     let flag = false
     let pos = -1;
     for (var i = 0; i < arrwords.length; i++) {
@@ -105,11 +105,11 @@ function checkGuess() {
         $('#guess').val('');
         let found = arrwords[pos][0];
         score = score + parseInt(arrwords[pos][1]);
-        console.log(score);
+        //console.log(score);
         arrwords[pos][2] = true;
 
         $(pos2).replaceWith(`<span class="racksFound">${found}</span>`);
-        console.log("score: " + score);
+        //console.log("score: " + score);
 
         $('#score').replaceWith(`<h2 id="score">Score=${score.toString(10)}</h2>`);
 
@@ -128,7 +128,7 @@ function createCookie(key, value) {
     oneweek.setDate(oneweek.getDate() + 1);
     let cookie = escape(key) + "=" + escape(value) + ";expires=" + oneweek + ";";
     document.cookie = cookie;
-    console.log(cookie);
+    //console.log(cookie);
 
 }
 
