@@ -116,7 +116,7 @@ function checkGuess() {
 }
 function createCookie(key, value) {
     let oneweek = new Date();
-    now.setDate(now.getDate()+7);
+    oneweek.setDate(oneweek.getDate()+7);
     let cookie = escape(key) + "=" + escape(value) + ";expires=" +oneweek+";";
     document.cookie = cookie;
     console.log(cookie);
