@@ -5,7 +5,7 @@ var score;
 
 
 $(document).ready(function () {
-    score=0;
+    score = 0;
     $('#guess').val('');
     let words;
     let points
@@ -20,7 +20,7 @@ $(document).ready(function () {
             points = rack.weight;
             let tem = words.split('@@');
             tem.forEach(function (entry) {
-                arrwords.push([entry, points,false]);
+                arrwords.push([entry, points, false]);
 
             });
 
@@ -80,12 +80,10 @@ function checkGuess() {
     let pos = -1;
     for (var i = 0; i < arrwords.length; i++) {
         if (arrwords[i][0].localeCompare(guess) === 0) {
-            if(arrwords[i][2]){
+            if (arrwords[i][2]) {
                 alert("Nice try cheater, ypu already found this one");
                 return;
-            }
-            else
-            {
+            } else {
                 flag = true;
                 pos = i;
             }
@@ -96,15 +94,14 @@ function checkGuess() {
     if (flag) {
         alert("You were right great Job");
         let pos2 = "#rackNr" + pos.toString(10);
-        score=arrwords[pos][1];
-        arrwords[pos][2]=true;
+        score = arrwords[pos][1];
+        arrwords[pos][2] = true;
         console.log(score);
         $('#guess').val('');
-        let found=arrwords[pos][0];
-
-
-
+        let found = arrwords[pos][0];
         $(pos2).replaceWith(`<li>Found=${found}</li>`);
+        $('#score').replaceWith(`<h2>Score=${arrwords[pos][1]}</h2>`);
+
 
     } else {
         alert("You were wrong, try again",);
