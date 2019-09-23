@@ -8,7 +8,7 @@ $(document).ready(function () {
         arrwords=Array();
         emptywords=Array();
         racks.map(rack => {
-            $("#racks").append(`<li>${rack.rack}</li>`);
+           // $("#racks").append(`<li>${rack.rack}</li>`);
             words = rack.words;
             let tem = words.split('@@');
             tem.forEach(function(entry) {
@@ -16,6 +16,7 @@ $(document).ready(function () {
             });
 
         });
+        $("#bingos").append(`<li>${racks[0][rack]}</li>`);
         arrwords.sort();
         console.log(arrwords);
         for (const c of arrwords) {
