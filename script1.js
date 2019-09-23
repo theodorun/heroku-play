@@ -107,7 +107,8 @@ function checkGuess() {
 
         $(pos2).replaceWith(`<span class="racks">${found}</span>`);
         console.log("score: "+score);
-        $('#score').replaceWith(`<h2>Score=${ score.toString(10)}</h2>`);
+        $('#score').empty()
+        $('#score').append(`<h2 id="score">Score=${ score.toString(10)}</h2>`);
 
         createCookie("myscore",score);
 
