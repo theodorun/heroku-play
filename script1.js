@@ -17,27 +17,27 @@ $(document).ready(function () {
             });
 
         });
+        arrwords.sort();
+        console.log(arrwords);
+        for (const c of arrwords) {
+            x=c.length;
+            var char = 'X';
+            emptywords.push(char.repeat(x));
 
+
+        }
+        console.log(emptywords);
+
+        $.each(emptywords, function(i)
+
+        {
+
+            $("#racks").append(`<li class="racks" id="rackNr${i}">${emptywords[i]}</li>`);
+            $(".racks").lettering();
+        });
 
     };
-    arrwords.sort();
-    console.log(arrwords);
-    for (const c of arrwords) {
-        x=c.length;
-        var char = 'X';
-        emptywords.push(char.repeat(x));
 
-
-    }
-    console.log(emptywords);
-
-    $.each(emptywords, function(i)
-
-    {
-
-        $("#racks").append(`<li class="racks" id="rackNr${i}">${emptywords[i]}</li>`);
-        $(".racks").lettering();
-    });
 
 
     $("#grabmore").on("click", function () {
