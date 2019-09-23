@@ -1,5 +1,5 @@
-var arrwords=Array();
-//var arrwords=["bb","a","ccccc"];
+//var arrwords=Array();
+var arrwords=["CCC","BB","A","DDDDD"];
 
 $(document).ready(function () {
     let words;
@@ -20,9 +20,14 @@ $(document).ready(function () {
         console.log(arrwords);
         console.log("held");*/
 
-    }
-    arrwords.sort(function(a, b){return a-b});
+    };
+    arrwords.sort();
     console.log(arrwords);
+    $.each(arrwords, function(i)
+    {
+        $("#racks").lettering();
+        $("#racks").append(`<li id="${i}">${arrwords[i]}</li>`);
+    });
 
 
     $("#grabmore").on("click", function () {
