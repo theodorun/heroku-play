@@ -1,14 +1,17 @@
 var arrwords=Array();
 //var arrwords=["CCC","BB","A","DDDDD"];
 var emptywords=Array();
+var points=Array();
 
 $(document).ready(function () {
     let words;
     let showRacks = function (racks) {
+        console.log(racks);
+        points=Array();
         arrwords=Array();
         emptywords=Array();
         racks.map(rack => {
-           // $("#racks").append(`<li>${rack.rack}</li>`);
+
             words = rack.words;
             let tem = words.split('@@');
             tem.forEach(function(entry) {
@@ -22,6 +25,7 @@ $(document).ready(function () {
         arrwords.sort(function(a, b){
             return a.length - b.length;
         });
+        arrwords.sort();
         console.log(arrwords);
         for (const c of arrwords) {
             x=c.length;
