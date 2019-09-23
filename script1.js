@@ -21,8 +21,8 @@ $(document).ready(function () {
         console.log("held");*/
 
     }
-
-    console.log(arrwords.sort());
+    arrwords.sort();
+    console.log(arrwords);
 
 
     $("#grabmore").on("click", function () {
