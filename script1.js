@@ -5,7 +5,10 @@ var score;
 
 
 $(document).ready(function () {
-    score = 0;
+    if(readCookie("myscore")!=null)  score = readCookie("myscore");
+    else  score = 0;
+    $('#score').replaceWith(`<h2>Score=${score}</h2>`);
+
     $('#guess').val('');
     let words;
     let points
@@ -100,7 +103,8 @@ function checkGuess() {
         $('#guess').val('');
         let found = arrwords[pos][0];
         $(pos2).replaceWith(`<span class="racks">${found}</span>`);
-        $('#score').replaceWith(`<h2>Score=${arrwords[pos][1]}</h2>`);
+        score=score+arrwords[pos][1];
+        $('#score').replaceWith(`<h2>Score=${score}</h2>`);
         createCookie("myscore",score);
 
 
@@ -111,8 +115,24 @@ function checkGuess() {
 
 }
 function createCookie(key, value) {
-    let cookie = escape(key) + "=" + escape(value) + ";";
+    let oneweek = new Date();
+    now.setDate(now.getDate()+7);
+    let cookie = escape(key) + "=" + escape(value) + ";expires=" +oneweek+";";
     document.cookie = cookie;
     console.log(cookie);
     console.log("Creating new cookie with key: " + key + " value: " + value);
+}
+function readCookie(name) {
+    let key = name + "=";
+    let cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        while (cookie.charAt(0) === ' ') {
+            cookie = cookie.substring(1, cookie.length);
+        }
+        if (cookie.indexOf(key) === 0) {
+            return cookie.substring(key.length, cookie.length);
+        }
+    }
+    return null;
 }
