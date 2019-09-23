@@ -7,11 +7,13 @@
     border: 1px solid black ;
     margin: 1px;
     display: inline-block;
+    font-size: 15px;
 }
 #bingos>*  {
     border: 2px solid black ;
     margin: 3px;
     display: inline-block;
+    font-size: 30px;
 }
 #main{
     width: 95%;
