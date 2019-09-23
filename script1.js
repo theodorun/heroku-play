@@ -99,8 +99,9 @@ function checkGuess() {
         console.log(score);
         $('#guess').val('');
         let found = arrwords[pos][0];
-        $(pos2).replaceWith(`<span>${found}</span>`);
+        $(pos2).replaceWith(`<span class="racks">${found}</span>`);
         $('#score').replaceWith(`<h2>Score=${arrwords[pos][1]}</h2>`);
+        createCookie("myscore",score);
 
 
     } else {
@@ -108,4 +109,10 @@ function checkGuess() {
     }
 
 
+}
+function createCookie(key, value) {
+    let cookie = escape(key) + "=" + escape(value) + ";";
+    document.cookie = cookie;
+    console.log(cookie);
+    console.log("Creating new cookie with key: " + key + " value: " + value);
 }
