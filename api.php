@@ -30,7 +30,7 @@
     $results2 = $statement2->execute();
      $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
      $temPerArray = permutaions($no1rack);
-     $perArray=array_unique($temPerArray, SORT_STRING)
+     $perArray=array_unique($temPerArray, SORT_STRING);
 
 print_r($perArray);
 
