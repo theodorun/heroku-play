@@ -1,19 +1,20 @@
-var arrwords=[[]];
+var arrwords=[];
 //var arrwords=["CCC","BB","A","DDDDD"];
 var emptywords=Array();
 
 
 $(document).ready(function () {
     let words;
+    let points
     let showRacks = function (racks) {
         console.log(racks);
 
-        arrwords=[[]];
+        arrwords=[];
         emptywords=Array();
         racks.map(rack => {
 
             words = rack.words;
-            let points=rack.points;
+            points=rack.points;
             let tem = words.split('@@');
             tem.forEach(function(entry) {
                arrwords.push([entry,points]);
@@ -25,15 +26,15 @@ $(document).ready(function () {
         $("#bingos").append(`<h2>${onlyrack}</h2>`);
         console.log("ARR");
         console.log(arrwords);
-        /*arrwords.sort(function(a, b){
+        arrwords.sort(function(a, b){
 
             return a[0].length - b[0].length;
-        });*/
+        });
 
         console.log(arrwords);
         for (const c of arrwords) {
-            x=c[0].length;
-            var char = 'X';
+            let x=c[0].length;
+            let char = 'X';
             emptywords.push(char.repeat(x));
 
 
