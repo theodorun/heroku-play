@@ -4,6 +4,7 @@ var emptywords = Array();
 
 
 $(document).ready(function () {
+    $('#guess').val('');
     let words;
     let points
     let showRacks = function (racks) {
@@ -87,7 +88,7 @@ function checkGuess() {
         alert("You were right great Job");
         let pos2 = "#rackNr" + pos.toString(10);
         console.log(pos2);
-        $("#guess").empty();
+        $('#guess').val('');
         $(pos2).replaceWith("<li>Found</li>");
 
     } else {
