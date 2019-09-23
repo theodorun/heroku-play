@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     else  score = 0;
     console.log(score);
-    $('#div').append(`<h2 id ="score">Score=${ score.toString(10)}</h2>`);
+    $('#upper').append(`<h2 id ="score">Score=${ score.toString(10)}</h2>`);
 
     $('#guess').val('');
     let words;
