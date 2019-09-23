@@ -23,7 +23,7 @@ $(document).ready(function () {
         });
         let onlyrack=racks[0]["rack"];
         $("#bingos").append(`<h2>${onlyrack}</h2>`);
-
+        console.log(arrwords);
         arrwords.sort(function(a, b){
 
             return a[0].length - b[0].length;
