@@ -32,7 +32,7 @@
      $temPerArray = permutaions($no1rack);
      $perArray=array_unique($temPerArray, SORT_STRING);
 
-print_r($perArray);
+
 
 
      for($i=1; $i<=count($perArray); $i++){
