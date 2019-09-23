@@ -8,7 +8,7 @@ $(document).ready(function () {
     if(readCookie("myscore")!=null)  score = parseInt(readCookie("myscore"));
 
     else  score = 0;
-    console.log(score);
+
     $('#upper').append(`<h2 id ="score">Score=${ score.toString(10)}</h2>`);
 
     $('#guess').val('');
@@ -70,7 +70,6 @@ function racksToArrays (racks) {
 
 
     }
-    console.log(emptywords);
     $("#divracks").empty();
     $.each(emptywords, function (i) {
 

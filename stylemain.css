@@ -5,10 +5,11 @@
 }
 .racksFound  {
     border: 1px solid darkgreen ;
-    border-radius: 8px;
+    border-radius: 3px;
     color:darkgreen;
     margin: 3px;
     display: inline-block;
+    padding: 1px;
 }
 .racks>*  {
     border: 1px solid red ;
