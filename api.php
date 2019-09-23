@@ -34,7 +34,7 @@
 
 print_r($perArray);
 
-/*
+
      for($i=1; $i<=count($perArray); $i++){
 
        $queryTemp = 'SELECT * FROM racks WHERE rack = :norack';
@@ -44,7 +44,7 @@ print_r($perArray);
        $resultsTemp= $statementTemp->execute();
        $resultsTemp = $statementTemp->fetchAll(PDO::FETCH_ASSOC);
        $results2=array_merge($results2, $resultsTemp);
-       }*/
+       }
 
 
 
