@@ -29,7 +29,8 @@
     $statement2->bindValue(':norack', $no1rack);
     $results2 = $statement2->execute();
      $results2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
-     $perArray = permutaions($no1rack);
+     $temPerArray = permutaions($no1rack);
+     $perArray=array_unique($temPerArray, SORT_STRING)
 
 print_r($perArray);
 
