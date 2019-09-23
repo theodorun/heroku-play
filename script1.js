@@ -7,7 +7,6 @@ $(document).ready(function () {
     let showRacks = function (racks) {
         arrwords=Array();
         emptywords=Array();
-        $("#racks").html('');
         racks.map(rack => {
             $("#racks").append(`<li>${rack.rack}</li>`);
             words = rack.words;
