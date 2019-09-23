@@ -16,9 +16,8 @@ $(document).ready(function () {
             });
 
         });
-        //let onlyrack=racks[0][rack];
-        console.log(racks[0][rack]);
-        //$("#bingos").append(`<h2>${onlyrack}</h2>`);
+        let onlyrack=racks[0]["rack"];
+        $("#bingos").append(`<h2>${onlyrack}</h2>`);
         arrwords.sort();
         console.log(arrwords);
         for (const c of arrwords) {
