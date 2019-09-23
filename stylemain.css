@@ -1,0 +1,8 @@
+.racks  {
+    color:red;
+    margin: 25px;
+}
+.racks>*  {
+    border: 1px solid black ;
+    margin: 1px;
+}

@@ -1,5 +1,6 @@
-//var arrwords=Array();
-var arrwords=["CCC","BB","A","DDDDD"];
+var arrwords=Array();
+//var arrwords=["CCC","BB","A","DDDDD"];
+var emptywords=Array();
 
 $(document).ready(function () {
     let words;
@@ -16,17 +17,26 @@ $(document).ready(function () {
             });
 
         });
-       /* arrwords.sort();
-        console.log(arrwords);
-        console.log("held");*/
+
 
     };
     arrwords.sort();
     console.log(arrwords);
-    $.each(arrwords, function(i)
+    for (const c of arrwords) {
+        x=c.length;
+        var char = 'X';
+        emptywords.push(char.repeat(x));
+
+
+    }
+    console.log(emptywords);
+
+    $.each(emptywords, function(i)
+
     {
-        $("#racks").lettering();
-        $("#racks").append(`<li id="${i}">${arrwords[i]}</li>`);
+
+        $("#racks").append(`<li class="racks" id="rackNr${i}">${emptywords[i]}</li>`);
+        $(".racks").lettering();
     });
 
 
@@ -57,9 +67,14 @@ function checkGuess() {
     console.log(arrwords.indexOf(guess));
     if (arrwords.indexOf(guess) != -1) {
         alert("You were right great Job");
+        let pos ="#rackNr"+arrwords.indexOf(guess).toString(10);
+        console.log(pos);
+
         $("#guess").empty();
+        $(pos).replaceWith( "<li>Found</li>" );
+
     } else {
-        alert("You were wrong again, tr",);
+        alert("You were wrong, try again",);
     }
 
 
