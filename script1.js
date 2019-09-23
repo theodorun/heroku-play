@@ -5,16 +5,14 @@ var score;
 
 
 $(document).ready(function () {
-    if(readCookie("myscore")!=null)  score = parseInt(readCookie("myscore"));
+    if (readCookie("myscore") != null) score = parseInt(readCookie("myscore"));
 
-    else  score = 0;
+    else score = 0;
 
-    $('#upper').append(`<h2 id ="score">Score=${ score.toString(10)}</h2>`);
+    $('#upper').append(`<h2 id ="score">Score=${score.toString(10)}</h2>`);
 
     $('#guess').val('');
-    let words;
-    let points
-
+    getRacks();
 
 
     $("#grabmore").on("click", getRacks);
@@ -28,6 +26,7 @@ $(document).ready(function () {
         checkGuess();
     });
 });
+
 function getRacks() {
     $.ajax({
         method: "GET",
@@ -37,9 +36,11 @@ function getRacks() {
         }
     });
 }
-function racksToArrays (racks) {
-    console.log(racks);
 
+function racksToArrays(racks) {
+    console.log(racks);
+    let words;
+    let points;
     arrwords = [];
     emptywords = Array();
     racks.map(rack => {
@@ -103,17 +104,16 @@ function checkGuess() {
         let pos2 = "#rackNr" + pos.toString(10);
         $('#guess').val('');
         let found = arrwords[pos][0];
-        score=score+parseInt(arrwords[pos][1]);
+        score = score + parseInt(arrwords[pos][1]);
         console.log(score);
         arrwords[pos][2] = true;
 
         $(pos2).replaceWith(`<span class="racksFound">${found}</span>`);
-        console.log("score: "+score);
+        console.log("score: " + score);
 
-        $('#score').replaceWith(`<h2 id="score">Score=${ score.toString(10)}</h2>`);
+        $('#score').replaceWith(`<h2 id="score">Score=${score.toString(10)}</h2>`);
 
-        createCookie("myscore",score);
-
+        createCookie("myscore", score);
 
 
     } else {
@@ -122,14 +122,16 @@ function checkGuess() {
 
 
 }
+
 function createCookie(key, value) {
     let oneweek = new Date();
-    oneweek.setDate(oneweek.getDate()+1);
-    let cookie = escape(key) + "=" + escape(value) + ";expires=" +oneweek+";";
+    oneweek.setDate(oneweek.getDate() + 1);
+    let cookie = escape(key) + "=" + escape(value) + ";expires=" + oneweek + ";";
     document.cookie = cookie;
     console.log(cookie);
 
 }
+
 function readCookie(name) {
     let key = name + "=";
     let cookies = document.cookie.split(';');
