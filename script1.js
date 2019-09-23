@@ -1,28 +1,29 @@
 var arrwords=Array();
+//var arrwords=["bb","a","ccccc"];
 
 $(document).ready(function () {
     let words;
     let showRacks = function (racks) {
-        $("#bingos").html('');
+        $("#racks").html('');
         racks.map(rack => {
-            $("#bingos").append(`<li>${rack.rack}</li>`);
+            $("#racks").append(`<li>${rack.rack}</li>`);
             words = rack.words;
             let tem = words.split('@@');
             console.log(tem);
             tem.forEach(function(entry) {
                 //console.log(entry);
-              //  arrwords.push(entry);
+               arrwords.push(entry);
             });
 
         });
-        arrwords.sort();
+       /* arrwords.sort();
         console.log(arrwords);
+        console.log("held");*/
 
-
-        $("#bingos li").on("click", function (evt) {
-            $(evt.currentTarget).find(".answer").toggleClass("hidden");
-        });
     }
+    arrwords.sort();
+    console.log(arrwords);
+
 
     $("#grabmore").on("click", function () {
         $.ajax({
