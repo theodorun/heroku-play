@@ -81,7 +81,7 @@ function checkGuess() {
     for (var i = 0; i < arrwords.length; i++) {
         if (arrwords[i][0].localeCompare(guess) === 0) {
             if(arrwords[i][2]){
-                alert("Nice try cheater");
+                alert("Nice try cheater, ypu already found this one");
                 return;
             }
             else
@@ -100,8 +100,11 @@ function checkGuess() {
         arrwords[pos][2]=true;
         console.log(score);
         $('#guess').val('');
-        let found=arrwords[pos][1];
-        $(pos2).replaceWith("<li>Found:${found}</li>");
+        let found=arrwords[pos][0];
+        console.log("hEre");
+        console.log(found);
+
+        $(pos2).replaceWith("<li>Found=${found}</li>");
 
     } else {
         alert("You were wrong, try again",);
