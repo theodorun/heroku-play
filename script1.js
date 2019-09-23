@@ -33,6 +33,7 @@ $(document).ready(function () {
         let onlyrack = racks[0]["rack"];
         $("#bingos").empty();
         $("#bingos").append(`<h2>${onlyrack}</h2>`);
+        $("#bingos").lettering();
         arrwords.sort(function (a, b) {
 
             return a[0].length - b[0].length;
@@ -122,7 +123,7 @@ function checkGuess() {
 }
 function createCookie(key, value) {
     let oneweek = new Date();
-    oneweek.setDate(oneweek.getDate()+7);
+    oneweek.setDate(oneweek.getDate()+1);
     let cookie = escape(key) + "=" + escape(value) + ";expires=" +oneweek+";";
     document.cookie = cookie;
     console.log(cookie);

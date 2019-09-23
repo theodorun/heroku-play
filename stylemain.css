@@ -8,6 +8,11 @@
     margin: 1px;
     display: inline-block;
 }
+#bingos>*  {
+    border: 2px solid black ;
+    margin: 3px;
+    display: inline-block;
+}
 #main{
     width: 95%;
     text-align: center
