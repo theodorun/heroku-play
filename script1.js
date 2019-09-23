@@ -20,7 +20,7 @@ $(document).ready(function () {
             points = rack.weight;
             let tem = words.split('@@');
             tem.forEach(function (entry) {
-                arrwords.push([entry, points]);
+                arrwords.push([entry, points,false]);
 
             });
 
@@ -80,8 +80,15 @@ function checkGuess() {
     let pos = -1;
     for (var i = 0; i < arrwords.length; i++) {
         if (arrwords[i][0].localeCompare(guess) === 0) {
-            flag = true;
-            pos = i;
+            if(arrwords[pos][2]){
+                alert("Nice try cheater");
+                return;
+            }
+            else
+            {
+                flag = true;
+                pos = i;
+            }
         }
         ;
     }
@@ -90,9 +97,11 @@ function checkGuess() {
         alert("You were right great Job");
         let pos2 = "#rackNr" + pos.toString(10);
         score=arrwords[pos][1];
+        arrwords[pos][2]=true;
         console.log(score);
         $('#guess').val('');
-        $(pos2).replaceWith("<li>Found</li>");
+        let found=arrwords[pos][1];
+        $(pos2).replaceWith("<li>Found:${found}</li>");
 
     } else {
         alert("You were wrong, try again",);
