@@ -57,7 +57,7 @@
     //this creates json and gives it back to the browser
     echo json_encode($results2);
 
-function permutaions($str) {
+function permutaions($str) { // based on https://r.je/php-find-every-combination
 
     $words =  str_split($str);
 
